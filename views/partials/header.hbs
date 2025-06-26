@@ -1,0 +1,27 @@
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">BLOGIFY</a>
+        </div>
+        <ul class="nav navbar-nav">
+            {{#if admin}}
+            <li><a href="/blog/add-blog">Add blogs</a></li>
+            {{/if}}
+            <li><a href="/blog">All blogs</a></li>
+            <li><a href="/sampleblogs">Sample Blogs</a></li> 
+            <li><a href="/about">About Us</a></li> 
+
+        </ul>
+        {{#if loggedIn}}
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="/user/profile"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+            <li><a href="/user/logout"><span class="glyphicon glyphicon-user"></span> Logout</a></li>
+        </ul>
+        {{else}}
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="/user/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="/user/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+        {{/if}}
+    </div>
+</nav>

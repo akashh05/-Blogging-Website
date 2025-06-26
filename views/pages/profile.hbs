@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="jumbotron">
+    <h4>Hello {{user.name}} you belongs to {{user.batch}}!</h4>
+  </div>
+  <div class="profile-blog-section">
+    {{#if blogs}}
+    <ul class="list-group">
+      {{#each blogs}}
+      {{/each}}
+    </ul>
+    {{/if}}
+
+    
+  </div>
+</div>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .container1{
+            display: block;
+            justify-content: center;
+        }
+
+        .about-section {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+
+        .aboutus {
+            display: flex;
+            justify-content: center;
+            margin-top: 0;
+            margin-bottom: 30px;
+            font-size: 36px;
+            color: #ffffff;
+        }
+
+        .card {
+            background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-content h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .card-content p,
+        .card-content ul {
+            line-height: 1.6;
+        }
+
+        .card-content ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .card-content ul li {
+            margin-bottom: 10px;
+        }
+
+        .card-content ul li strong {
+            color: #333;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        footer p {
+            margin: 20px;
+            font-size: 16px;
+        }
+
+        .background-image-about {
+            background-image: url('your-background-image.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 60px 0;
+            font-size: 20px;
+        }
+
+        .mission-vision-values {
+            margin-top: 40px;
+        }
+
+        .mission-vision-values .card {
+            flex-basis: 30%;
+        }
+        .team-members{
+            display: flex;
+            justify-content: center;
+            justify-content: space-around;
+        }
+
+        .team-member {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .team-member img {
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .team-member h3 {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .team-member p {
+            font-size: 16px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+<section class="about background-image-about">
+    <div class="container">
+        <h2 class="aboutus">About Us</h2>
+        <div class="mission-vision-values">
+            <div class="card card1">
+                <div class="card-content">
+                    <h3>Our Mission</h3>
+                    <p>{{mission}}</p>
+                </div>
+            </div>
+    
+            <div class="card card2"> 
+                <div class="card-content">
+                    <h3>Our Vision</h3>
+                    <p>{{vision}}</p>
+                </div>
+            </div>
+    
+            <div class="card card3">
+                <div class="card-content">
+                    <h3>Our Values</h3>
+                    <ul>
+                        {{#each values}}
+                        <li><strong>{{name}}:</strong> {{description}}</li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="about-section">
+    <div class="container1">
+        <h2 class="aboutus">Our Team</h2>
+        <div class="team-members">
+            <div class="team-member">
+                <img src="/images/akash.png" alt="Akash Sharma">
+                <h3>Akash Sharma</h3>
+                <p>Role: Front-End Development and <br> Back-End Development<br>University Roll No: 2115000101</p>
+            </div>
+            <div class="team-member">
+                <img src="/images/aman.jpg" alt="Aman Verma">
+                <h3>Aman Verma</h3>
+                <p>Role: Front-End Development <br><br>University Roll No: 2115000136</p>
+            </div>
+            <div class="team-member">
+                <img src="/images/harsh.jpg" alt="Harsh Sharma">
+                <h3>Harsh Sharma</h3>
+                <p>Role: Front-End Development <br><br>University Roll No: 2115000996</p>
+            </div>
+            <div class="team-member">
+                <img src="/images/kshitiz.png" alt="Kshitz Katiyar">
+                <h3>Kshitz Katiyar</h3>
+                <p>Role: Front-End Development and <br> Back-End Development<br>University Roll No: 211500558</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

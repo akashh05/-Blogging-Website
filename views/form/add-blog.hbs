@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="/public/stylesheets/style.css">
+
+<body>
+
+<div class="col-sm-6 col-md-6 col-sm-offset-3">
+    <form class="aaaa" action="/blog/add-blog" method="post">
+        <div class="form-group">
+            <label for="blog_name">Blog Topic:</label>
+            <input type="text" name="blog_name" class="form-control" id="blog_name" required>
+        </div>
+        <div class="form-group">
+            <label for="cover_image">Cover Image:</label>
+            <input type="text" name="cover_image" class="form-control" id="cover_image" required>
+        </div>
+        <div class="form-group">
+            <label for="author_name">Author Name:</label>
+            <input type="text"  name="author_name" class="form-control" id="author_name" required>
+        </div>
+        <div class="form-group">
+            <label for="genres">Genres:</label>
+            <input type="text" name="genres" class="form-control" id="genres" required>
+        </div>
+        <div class="form-group">
+            <label for="blog_link">Blog Link:</label>
+            <input type="text" name="blog_link" class="form-control" id="blog_link" required>
+        </div>
+         <div class="form-group">
+            <label for="cover_description">Description:</label>
+            <textarea name="cover_description" class="form-control" id="cover_description" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btnq btn-default btn-primary">Add Blog</button>
+    </form>
+</div>
+
+
+</body>

@@ -1,0 +1,66 @@
+<link rel="stylesheet" href="/public/stylesheets/style.css">
+<body>
+<div class="row">
+    {{#each blogs}}
+    <div class="col col-sm-5 blog-item">
+        <form id="editForm-{{this._id}}" method="post" action="/blog/edit/{{this._id}}">
+            <div class="blog-body">
+                <h2> Blog Topic: {{this.blog_name}} </h2> <br> <br>
+                <img src={{this.cover_image}} width="200" height="200"> <br> <br>
+                <h8 class="author"  > <b>Author: {{this.author_name}} </b> </h8><br> <br>
+                Description: {{this.cover_description}} <br> <br>
+                <a class="btn btn-info" href={{this.blog_link}}>Click Here For More Info</a> <br> <br>
+
+            </div>
+            <div class="blog-footer">
+                <a href="/blog/edit/{{this._id}}" class="btn btn-primary">Edit</a>
+                <button onclick="deleteBlog('{{this._id}}')" class="btn btn-danger">Delete</button>
+                <button onclick="likeBlog('{{this._id}}')" class="btn btn-success">&#x1F44D;</button>
+                <span id="likesCount-{{this._id}}">{{this.likes}}</span> Likes
+            </div>
+        </form>
+    </div>
+    {{/each}}
+</div>
+
+<script>
+    function editBlog(blogId) {
+        // Redirect to the edit page with the blogId
+        window.location.href = '/blog/edit/' + blogId;
+    }
+
+    function deleteBlog(blogId) {
+        if (confirm("Are you sure you want to delete this blog?")) {
+            fetch('/blog/delete/' + blogId, {
+                method: 'DELETE'
+            })
+            .then(response => {
+                // handle response
+                if (response.ok) {
+                    window.location.reload();
+                } else {
+                    throw new Error('Failed to delete blog');
+                }
+            })
+            .catch(error => console.error('Error deleting blog:', error));
+        }
+    }
+
+    function likeBlog(blogId) {
+        fetch('/blog/like/' + blogId, {
+            method: 'POST'
+        })
+        .then(response => {
+            if (response.ok) {
+                // Increment the like count displayed on the page
+                const likesSpan = document.getElementById('likesCount-' + blogId);
+                likesSpan.textContent = parseInt(likesSpan.textContent) + 0;
+            } else {
+                throw new Error('Failed to like blog');
+            }
+        })
+        .catch(error => console.error('Error liking blog:', error));
+    }
+</script>
+
+</body>
