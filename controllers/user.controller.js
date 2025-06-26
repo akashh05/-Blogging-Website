@@ -13,9 +13,22 @@ module.exports = {
         try {
             const userId = req.userId;
             const user = await userService.findUserById(userId);
-            const allPurchasedBlogs = await borrowerService.findallPurchasedBlogs(userId, next);
-            res.render("pages/profile", { blogs: allPurchasedBlogs, user: { name: user.name, batch: user.batch, email: user.email } });
+            
+            // Try to get purchased blogs, but don't fail if there's an error
+            let allPurchasedBlogs = [];
+            try {
+                allPurchasedBlogs = await borrowerService.findallPurchasedBlogs(userId, next) || [];
+            } catch (borrowError) {
+                console.log("No purchased blogs found or error occurred:", borrowError.message);
+                allPurchasedBlogs = [];
+            }
+            
+            res.render("pages/profile", { 
+                blogs: allPurchasedBlogs, 
+                user: { name: user.name, batch: user.batch, email: user.email } 
+            });
         } catch (error) {
+            console.error("Profile error:", error);
             next(error);
         }
     },

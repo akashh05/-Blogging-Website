@@ -24,13 +24,15 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // Serve static files from the public directory
+app.use('/stylesheets', express.static(path.join(__dirname, 'public/stylesheets')));
+app.use('/images', express.static(path.join(__dirname, 'public/images')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 /**
  * Make MongoDB connection
  */
 (async () => {
-    await mongoose.connect('mongodb://localhost:27017/blog123', {
+    await mongoose.connect('mongodb://localhost:27017/blog', {
         useNewUrlParser: true,
         useUnifiedTopology: true
     });
